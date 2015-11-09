@@ -1,20 +1,11 @@
 import chai, { expect } from 'chai';
+chai.should();
 import System from 'systemjs';
 import '../config.js';
+import {errorForNonNumbers} from './macronutrients.js';
 
 describe('myTest', () => {
-  let macrosModule;
-
-  before(() => {
-    return System.import('./src/macronutrients.js')
-      .then((macronutrients) => {
-        macrosModule = macronutrients;
-    	});
-  });
-
-  describe('Module Loading', () => {
-    it('should load', () => {
-    	macrosModule.should.not.be.null;
-    });
-  });
+	it('should load', () => {
+		errorForNonNumbers.should.not.be.null;
+	});
 });
